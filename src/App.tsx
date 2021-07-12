@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 
 interface data {
   includes(searchInput: string): string;
   index: number;
-  name: number;
+  name: string;
 }
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
   const [searchInput, setSearchInput] = useState<string>("");
 
   const getdata = () => {
-    axios.get(" https://api.publicapis.org/categories").then((response) => {
+    axios.get("https://api.publicapis.org/categories").then((response) => {
       setData(response.data);
     });
   };
@@ -25,33 +24,47 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header className="App-header" style={{ padding: "10px" }}>
         <input
-          style={{ width: "500px" }}
+          style={{ width: "30%" }}
           placeholder="Enter name for fillter"
           onChange={(e) => {
             setSearchInput(e.target.value);
           }}
         ></input>
-        <table
+        <div
           style={{
-            textAlign: "left",
-            width: "30%",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <tbody>
-            {data!
-              .filter((name) => name.includes(searchInput))
-              .map((name, index) => (
-                <tr key={index}>
-                  <th>
-                    <li>{name}</li>
-                  </th>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+          <table
+            style={{
+              width: "30%",
+              textAlign: "left",
+              borderCollapse: "collapse",
+            }}
+          >
+            <tbody>
+              <tr>
+                <th></th>
+              </tr>
+              {data!
+                .filter((name) => name.includes(searchInput))
+                .map((name, index) => (
+                  <tr
+                    key={index}
+                    style={{ textAlign: "center", border: "1px solid black" }}
+                  >
+                    <th>{name}</th>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
       </header>
     </div>
   );
