@@ -1,5 +1,6 @@
 # Quiz_Q2
-<img width="1367" alt="Screen Shot 2021-07-12 at 10 48 32 PM" src="https://user-images.githubusercontent.com/42506615/125317748-70488380-e363-11eb-8e43-efa86da7ef8e.png">
+<img width="1310" alt="Screen Shot 2021-07-12 at 11 16 09 PM" src="https://user-images.githubusercontent.com/42506615/125321863-51e48700-e367-11eb-9b0b-45c84968a1c0.png">
+
 
 
 # Getting Started with Create React App
